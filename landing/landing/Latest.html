@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Plain White Website</title>
+  <style>
+    body {
+      background-color: rgb(107, 105, 105);
+      margin: 0;
+      padding: 0;
+      font-family: "Helvetica", sans-serif;
+    }
+    
+    ul {
+      list-style-type: none;
+      margin: 20px;
+      padding: 0;
+      text-align: center;
+    }
+    
+    li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    
+    li a {
+      text-decoration: none;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+      transition: background-color 0.3s ease;
+    }
+    
+    li a:hover {
+      background-color: rgb(137, 207, 240);
+      color: white;
+    }
+    
+    li a.active {
+      background-color: rgb(137, 207, 240);
+      color: white;
+    }
+    
+    .header {
+      text-align: center;
+      margin-top: 50px;
+      position: relative;
+    }
+    
+    .logo-image {
+      max-width: 200px;
+    }   
+    .login-icon {
+      position: absolute;
+      top: 1px;
+      right: 20px;
+      max-width: 50px;
+    }
+    .slideshow-container {
+    max-width: 600px;
+    position: relative;
+    margin: auto;
+  }
+
+  .mySlides {
+    display: none;
+  }
+
+  .mySlides img {
+    width: 100%;
+    height: auto;
+  }
+
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+
+  .prev {
+    left: 0;
+  }
+
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="C:\Users\Nonits\Desktop\logo.png" alt="Logo" class="logo-image">
+    <a href="https:google.com">
+    <img src="C:\Users\Nonits\Desktop\login.png" alt="Login" class="login-icon">
+  </a>
+  </div>
+  
+  <ul>
+    <li><a href="#" onclick="activateCategory(this)" class="active">All</a></li>
+    <li><a href="#" onclick="activateCategory(this)">E-juice</a></li>
+    <li><a href="#" onclick="activateCategory(this)">Mods</a></li>
+    <li><a href="#" onclick="activateCategory(this)">Atomizer</a></li>
+    <li><a href="#" onclick="activateCategory(this)">Accessories</a></li>
+    <li><a href="#" onclick="activateCategory(this)">Disposable Vape</a></li>
+  </ul>
+  
+  <script>
+    function activateCategory(link) {
+      var links = document.getElementsByTagName("a");
+      for (var i = 0; i < links.length; i++) {
+        links[i].classList.remove("active");
+      }
+      link.classList.add("active");
+    }
+  </script>
+  <div class="slideshow-container">
+    <div class="mySlides">
+      <img src="C:\Users\Nonits\Desktop\1.jpg" alt="Image 1">
+    </div>
+  
+    <div class="mySlides">
+      <img src="C:\Users\Nonits\Desktop\2.jpg" alt="Image 2">
+    </div>
+  
+    <div class="mySlides">
+      <img src="C:\Users\Nonits\Desktop\3.jpg" alt="Image 3">
+    </div>
+  
+    <div class="mySlides">
+      <img src="C:\Users\Nonits\Desktop\4.jpg" alt="Image 4">
+    </div>
+  
+    <div class="mySlides">
+      <img src="C:\Users\Nonits\Desktop\5.jpg" alt="Image 5">
+    </div>
+  
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+  </div>
+  <script>
+  let slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function showSlides(n) {
+    let i;
+    const slides = document.getElementsByClassName("mySlides");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slides[slideIndex-1].style.display = "block";
+  }
+
+  // Automatically transition to the next slide every 3 seconds (3000 milliseconds)
+  setInterval(function() {
+    plusSlides(1);
+  }, 1500);
+</script>
+</body>
+</html>
